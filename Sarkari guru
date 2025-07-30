@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sarkari Guru</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .card { display: block; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+  <!-- Header -->
+  <header class="bg-blue-600 text-white shadow-md sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Sarkari Guru</h1>
+    </div>
+  </header>
+
+  <!-- Title & Search -->
+  <section class="py-6 text-center bg-gray-100">
+    <h2 class="text-2xl font-semibold mb-2">All Sarkari Updates</h2>
+    <input type="text" id="searchInput" onkeyup="searchUpdates()" placeholder="Search by name..." class="border rounded px-4 py-2 w-2/3 md:w-1/3 text-sm shadow-sm focus:outline-none focus:ring">
+  </section>
+
+  <!-- Table-Like Grid -->
+  <section class="max-w-6xl mx-auto px-4 py-10">
+    <div class="grid grid-cols-3 gap-4 font-semibold text-center border-b pb-3">
+      <div>📝 Online Forms</div>
+      <div>🎫 Admit Cards</div>
+      <div>📊 Results</div>
+    </div>
+
+    <!-- Content Rows -->
+    <div id="dataGrid" class="grid grid-cols-3 gap-4 text-sm text-center mt-4">
+      <!-- Online Forms -->
+      <div class="space-y-4">
+        <div class="card border p-2 rounded">
+          <a class="text-blue-600 font-medium hover:underline">UPSC Civil Services</a>
+          <p class="text-xs">Start: 01 Aug 2025</p>
+          <p class="text-red-600 text-xs">Last Date: 30 Aug 2025</p>
+        </div>
+        <div class="card border p-2 rounded">
+          <a class="text-blue-600 font-medium hover:underline">SSC GD Constable</a>
+          <p class="text-xs">Start: 05 Aug 2025</p>
+          <p class="text-red-600 text-xs">Last Date: 12 Sep 2025</p>
+        </div>
+      </div>
+
+      <!-- Admit Cards -->
+      <div class="space-y-4">
+        <div class="card border p-2 rounded">
+          <a class="text-blue-600 font-medium hover:underline">UP Police Constable</a>
+          <p class="text-xs">Released: 10 Sep 2025</p>
+          <p class="text-green-600 text-xs">Exam: 15 Sep 2025</p>
+        </div>
+        <div class="card border p-2 rounded">
+          <a class="text-blue-600 font-medium hover:underline">Railway Group D</a>
+          <p class="text-xs">Released: 28 Jul 2025</p>
+          <p class="text-green-600 text-xs">Exam: 03 Aug 2025</p>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div class="space-y-4">
+        <div class="card border p-2 rounded">
+          <a class="text-blue-600 font-medium hover:underline">SSC CGL Final</a>
+          <p class="text-xs">Result: 29 Jul 2025</p>
+          <p class="text-green-600 text-xs">Status: Declared</p>
+        </div>
+        <div class="card border p-2 rounded">
+          <a class="text-blue-600 font-medium hover:underline">Bihar Board 12th</a>
+          <p class="text-xs">Result: 25 Jul 2025</p>
+          <p class="text-green-600 text-xs">Status: Available</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-blue-600 text-white text-center py-4">
+    <p>&copy; 2025 Sarkari Guru. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript: Search Filter -->
+  <script>
+    function searchUpdates() {
+      const input = document.getElementById("searchInput").value.toLowerCase();
+      const cards = document.querySelectorAll(".card");
+
+      cards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        if (text.includes(input)) {
+          card.classList.remove("hidden");
+        } else {
+          card.classList.add("hidden");
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
